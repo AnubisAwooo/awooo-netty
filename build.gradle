@@ -4,7 +4,7 @@ plugins {
 
 group 'awooo'
 version '1.0'
-sourceCompatibility = 11
+sourceCompatibility = 8
 
 repositories {
     maven { url 'https://maven.aliyun.com/repository/public/' }

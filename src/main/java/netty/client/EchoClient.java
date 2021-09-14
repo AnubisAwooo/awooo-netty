@@ -10,9 +10,7 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 
 import java.net.InetSocketAddress;
 
-/**
- * @author: dawn
- */
+
 public class EchoClient {
 
     private final String host;
