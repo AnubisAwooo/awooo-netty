@@ -32,7 +32,7 @@ public class BIOServer {
 
     private static void handle(Socket socket) {
         System.out.println("current thread -> " + Thread.currentThread().getName());
-        
+
         byte[] bytes = new byte[1024];
         try (InputStream in = socket.getInputStream()){
             while (true) {

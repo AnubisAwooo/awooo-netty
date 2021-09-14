@@ -4,18 +4,18 @@ plugins {
 
 group 'awooo'
 version '1.0'
-sourceCompatibility = 8
-
-repositories {
-    maven { url 'https://maven.aliyun.com/repository/public/' }
-    maven { url 'https://repo.spring.io/milestone' }
-    mavenCentral()
-}
+sourceCompatibility = '11'
 
 configurations {
     compileOnly {
         extendsFrom annotationProcessor
     }
+}
+
+repositories {
+    maven { url 'https://maven.aliyun.com/repository/public/' }
+    maven { url 'https://repo.spring.io/milestone' }
+    mavenCentral()
 }
 
 dependencies {
