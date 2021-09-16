@@ -7,6 +7,8 @@ import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.logging.LogLevel;
+import io.netty.handler.logging.LoggingHandler;
 import io.netty.util.CharsetUtil;
 
 public class NettyServer {
@@ -22,6 +24,7 @@ public class NettyServer {
             bootstrap.group(boss, worker)
                 .channel(NioServerSocketChannel.class)
                 .option(ChannelOption.SO_BACKLOG, 128)
+                .handler(new LoggingHandler(LogLevel.INFO))
                 .childOption(ChannelOption.SO_KEEPALIVE, true)
                 .childHandler(new ChannelInitializer<SocketChannel>() {
                     @Override
@@ -43,6 +46,11 @@ public class NettyServer {
                             public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
                                 cause.printStackTrace();
                                 ctx.close();
+                            }
+    
+                            @Override
+                            public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
+                                // 事件触发
                             }
                         });
                     }
